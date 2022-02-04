@@ -1,3 +1,4 @@
+import { List, ListItem, ListItemText } from '@material-ui/core'
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { loadRestaurants } from '../store/restaurants/action'
@@ -8,11 +9,15 @@ export const RestaurantList = ({ loadRestaurants, restaurants }) => {
   }, [loadRestaurants])
 
   return (
-    <ul>
+    <List>
       {restaurants.map((restaurant) => {
-        return <li key={restaurant.id}>{restaurant.name}</li>
+        return (
+          <ListItem key={restaurant.id}>
+            <ListItemText>{restaurant.name}</ListItemText>
+          </ListItem>
+        )
       })}
-    </ul>
+    </List>
   )
 }
 
